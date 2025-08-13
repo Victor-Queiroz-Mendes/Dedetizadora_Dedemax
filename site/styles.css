@@ -1,0 +1,899 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #000;
+  color: white;
+  padding: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;      /* Menos espaço vertical */
+  min-height: 70px;     /* Altura menor */
+
+
+  /* Novas propriedades para fixar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000; /* Mantém o fundo preto */
+  z-index: 1000; /* Garante que fique acima do restante */
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 10px 25px 10px 10px;
+  border-radius: 2px;
+  /* Remova o margin-right */
+}
+
+.logo {
+  height: 60px;
+  margin-right: 18px;
+}
+
+.nome-empresa {
+  color: #3e566a;
+  font-size: 2.3rem;
+  font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.sub-nome {
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #3e566a;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  /* Remova flex: 1 */
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 40px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+section {
+  padding: 20px;
+  margin: 20px;
+}
+
+section#como-se-tornar ol {
+  list-style: decimal;
+  margin-left: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  /* Remova ou comente as linhas abaixo */
+  /* position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 100; */
+}
+.sobre-nos-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.sobre-nos-img img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.sobre-nos-texto {
+  flex: 1;
+}
+
+.sobre-nos-texto .subtitulo {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.sobre-nos-texto h2 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.sobre-nos-texto h2 .azul {
+  color: #0964af;
+}
+
+.sobre-nos-texto p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.botoes-acao {
+  margin-top: 20px;
+}
+
+.btn-acao {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #223344;
+  color: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-acao:hover {
+  background-color: #0964af;
+}
+
+@media (max-width: 900px) {
+  .sobre-nos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sobre-nos-img img {
+    max-width: 100%;
+  }
+}
+
+
+.carrossel {
+  position: relative;
+  width: 100%;
+  height: 667px; /* Altura igual à imagem original */
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.slide.ativo {
+  display: block;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantém proporção e qualidade */
+  filter: brightness(0.7);
+}
+
+.carrossel-texto {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 600px;
+}
+
+.carrossel-texto h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carrossel-texto em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.carrossel-texto p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.carrossel-botoes .btn {
+  display: inline-block;
+  background: #000000;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 16px;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.carrossel-botoes .btn:hover {
+  background: #223344;
+}
+
+.carrossel-prev, .carrossel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0 12px;
+  z-index: 10;
+}
+
+.carrossel-prev { left: 20px; }
+.carrossel-next { right: 20px; }
+
+@media (max-width: 900px) {
+  .sobre-nos-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .sobre-nos-img img {
+    width: 100%;
+    border-radius: 30px;
+  }
+}
+
+
+
+.pragas-section {
+  padding: 60px 20px;
+  background-color: #f4f4f4;
+}
+
+.pragas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Lado esquerdo: lista de pragas */
+.pragas-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.pragas-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #0964af;
+}
+
+.lista-pragas {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.lista-pragas li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.lista-pragas li a {
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.3s;
+}
+
+.lista-pragas li a:hover {
+  color: #0964af;
+}
+
+/* Lado direito: imagem */
+.pragas-imagem {
+  flex: 1;
+  min-width: 280px;
+}
+
+.pragas-imagem img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Responsivo: imagem abaixo da lista */
+@media (max-width: 900px) {
+  .pragas-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .pragas-imagem img {
+    max-width: 80%;
+  }
+}
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estrutura geral */
+.secao-pragas {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 50px 10%;
+}
+
+/* Texto */
+.pragas-texto {
+  flex: 1;
+  text-align: center;
+}
+
+.pragas-texto ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  display: inline-block;
+  text-align: left;
+}
+
+/* Imagem */
+.pragas-imagem {
+  flex: 1;
+}
+
+.pragas-imagem img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Botão */
+.btn-pragas {
+  display: inline-block;
+  margin-top: 20px;
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-pragas:hover {
+  background: #0056b3;
+}
+.secao-pragas h2 {
+  font-size: 2rem; /* tamanho grande */
+  font-weight: bold; /* negrito */
+  margin-bottom: 20px; /* espaço abaixo */
+  text-align: center; /* centralizado */
+  color: #222; /* cor do texto */
+}
+.btn-contato {
+  display: inline-block;
+  background-color: #000; /* preto */
+  color: #fff; /* texto branco */
+  padding: 12px 24px;
+  text-decoration: none; /* tira o sublinhado */
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-contato:hover {
+  background-color: #333; /* preto mais claro no hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contato */
+.contato-section {
+  padding: 40px 10%;
+  background-color: #111; /* Preto suave */
+  color: #fff;
+}
+
+.contato-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.contato-img img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.contato-form {
+  flex: 1;
+  min-width: 280px;
+}
+
+.contato-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.contato-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contato-form label {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.contato-form input,
+.contato-form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.contato-form button {
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #0964af;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contato-form button:hover {
+  background-color: #004080;
+}
+
+/* Rodapé */
+#footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 10%;
+  font-size: 14px;
+  margin-top: 0; /* colado no contato */
+}
+
+.footer-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.footer-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-info p {
+  margin: 4px 0;
+}
+
+.footer-info a {
+  color: #0964af;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .contato-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contato-img img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Seção Nossos Serviços */
+section#nossos-servicos {
+  background-color: #000; /* Fundo preto */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section#nossos-servicos h2 {
+  font-size: 2.5rem;
+  color: #ffffff; /* Azul para o título */
+  margin-bottom: 40px;
+}
+
+/* Container dos cards */
+.servicos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; /* Responsivo */
+}
+
+/* Card individual */
+.servico {
+  background-color: #111; /* Preto mais suave para os cards */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  padding: 30px 20px;
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Efeito hover */
+.servico:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+}
+
+/* Título do card */
+.servico h3 {
+  color: #ffffff; /* Azul do site */
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+/* Texto do card */
+.servico p {
+  color: #fff; /* Texto branco */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Ícones opcionais no card */
+.servico i {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .servicos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .servico {
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 30px;
+  }
+}
+/* Card individual com efeito de luz */
+.servico {
+  background-color: #111; /* Preto suave */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  padding: 30px 20px;
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.4s;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Glow azul atrás do card no hover */
+.servico::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(9,100,175,0.4) 0%, rgba(0,0,0,0) 60%);
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: -1;
+  transform: scale(0.8);
+  border-radius: 16px;
+}
+
+.servico:hover::before {
+  opacity: 1;
+  transform: scale(1); /* Expande o glow */
+}
+
+.servico:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7), 0 0 20px rgba(9,100,175,0.6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   Contato + Rodapé unidos
+========================= */
+#contato {
+  padding: 40px 10%;
+  background-color: #000;
+  color: #fff;
+  margin: 0; /* Remove qualquer espaço extra */
+  border-bottom: none; /* Remove bordas se houver */
+}
+
+.contato-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contato-imagem {
+  flex: 1;
+  min-width: 250px;
+}
+
+.contato-imagem img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.contato-form {
+  flex: 1;
+  min-width: 250px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  margin: 0;
+}
+
+.contato-form h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+#form-contato input,
+#form-contato textarea {
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: none;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #222;
+  color: #fff;
+}
+
+#form-contato button {
+  padding: 12px;
+  background-color: #0964af;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#form-contato button:hover {
+  background-color: #004080;
+}
+
+/* Rodapé agora "grudado" no contato */
+#footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 10%;
+  font-size: 14px;
+  margin: 0; /* remove qualquer espaço */
+  border-top: none; /* remove borda se houver */
+}
+
+.footer-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .contato-container, .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contato-imagem img, .footer-logo img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .contato-form {
+    margin-top: 20px;
+  }
+}
